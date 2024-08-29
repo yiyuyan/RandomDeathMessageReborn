@@ -1,15 +1,12 @@
 package cn.ksmcbrigade.rdmr;
 
 import net.minecraftforge.fml.common.Mod;
+import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 @Mod("rdmr")
 public class RandomDeathMessageReborn {
@@ -36,8 +33,8 @@ public class RandomDeathMessageReborn {
             System.out.println("Remote messages failure. Use fallback.");
 
             try {
-                return Files.readAllLines(Path.of(RandomDeathMessageReborn.class.getResource("/messages.txt").getPath()));
-            } catch (IOException ex) {
+                return Arrays.stream(IOUtils.toString(Objects.requireNonNull(RandomDeathMessageReborn.class.getResourceAsStream("/messages.txt"))).split("\\n")).toList();
+            } catch (Exception ex) {
                 System.out.println("RDM Total Failiure.");
                 throw new RuntimeException(ex);
             }

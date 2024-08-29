@@ -17,7 +17,7 @@ public class DamageSourceMixin {
      */
     @Overwrite
     public Component getLocalizedDeathMessage(LivingEntity entity) {
-        String message = RandomDeathMessageReborn.MESSAGES.get(ThreadLocalRandom.current().nextInt(0, RandomDeathMessageReborn.MESSAGES.size())).replaceAll("<rdm[.]player[.]name>",entity.getDisplayName().getString());
+        String message = RandomDeathMessageReborn.MESSAGES.get(ThreadLocalRandom.current().nextInt(0, RandomDeathMessageReborn.MESSAGES.size())).replaceAll("<rdmr[.]player[.]name>",entity.getDisplayName().getString());
         return Component.literal(message);
     }
 }
