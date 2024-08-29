@@ -17,7 +17,7 @@ public class RandomDeathMessageReborn {
 
     static {
         try {
-            REMOTE_URL = new URL("https://raw.githubusercontent.com/yiyuyan/RandomDeathMessageReborn/master/src/main/resources/messages.txt");
+            REMOTE_URL = new URL("https://github.com/yiyuyan/RandomDeathMessageReborn/raw/master/src/main/resources/messages.txt");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
